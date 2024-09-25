@@ -36,6 +36,26 @@ const Home = () => {
     }
   }
 
+  const toggleTodo:ToggleFn = async (todo) => {
+    try {
+      await axios.put(url, {...todo, isDone:!todo.isDone})
+    } catch (error) {
+      console.log(error);      
+    } finally {
+      getTodos()
+    }
+  }
+
+  const deleteTodo:DeleteFn = async (id) => {
+    try {
+      await axios.delete(`${url}/${id}`)
+    } catch (error) {
+      console.log(error);      
+    } finally {
+      getTodos()
+    }
+  }
+
   useEffect(()=>{
     getTodos()
   },[])
@@ -44,7 +64,7 @@ const Home = () => {
     <Container>
         <Header/>
         <AddTodoComp addTodo={addTodo}/>
-        <TodoList/>
+        <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
     </Container>
   )
 }
