@@ -19,10 +19,20 @@ const Home = () => {
 
   const getTodos = async () => {
     try {
-      const {data} = await axios(url)
+      const {data} = await axios<ITodoType[]>(url)
       console.log(data);
-      
+      setTodos(data)
     } catch (error) {
+      
+    }
+  }
+
+  const addTodo = async (text:string) => {
+    try {
+      await axios.post(url, {task:text, isDone: false})
+      getTodos()
+    } catch (error) {
+      console.log(error);
       
     }
   }
