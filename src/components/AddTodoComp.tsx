@@ -28,9 +28,10 @@ const AddTodoComp = ({ addTodo }: IAddTodoComp) => {
         id="outlined-disabled"
         label="New Todo"
         variant="outlined"
+        color="success"
+        sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
         value={text}
         onChange={(e) => setText(e.target.value)}
-        sx={{ minWidth: { xs: "100%", sm: "50%" }, height: "50px", m: 1 }}
       />
       <Button
         onClick={handleClick}
