@@ -32,8 +32,7 @@ const Home = () => {
       await axios.post(url, {task:text, isDone: false})
       getTodos()
     } catch (error) {
-      console.log(error);
-      
+      console.log(error);      
     }
   }
 
@@ -44,7 +43,7 @@ const Home = () => {
   return (
     <Container>
         <Header/>
-        <AddTodoComp/>
+        <AddTodoComp addTodo={addTodo}/>
         <TodoList/>
     </Container>
   )
