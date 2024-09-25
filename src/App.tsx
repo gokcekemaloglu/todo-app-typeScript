@@ -1,9 +1,12 @@
-
+import Container from "@mui/material/Container"
+import Home from "./pages/Home"
 
 function App() {
 
   return (
-    <div>TODO APP</div>
+    <Container>
+      <Home/>
+    </Container>
   )
 }
 
