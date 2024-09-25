@@ -26,8 +26,8 @@ const Home = () => {
       
     }
   }
-
-  const addTodo = async (text:string) => {
+  
+  const addTodo:AddFn = async (text:string) => {
     try {
       await axios.post(url, {task:text, isDone: false})
       getTodos()

@@ -3,7 +3,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import { useState } from "react";
 
 interface IAddTodoComp {
-  addTodo: (text: string) => Promise<void>
+  addTodo: AddFn
 }
 
 const AddTodoComp = ({addTodo}: IAddTodoComp) => {
