@@ -1,3 +1,4 @@
+import React from "react";
 import { Typography } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import TodoListItem from './TodoListItem';
@@ -47,11 +48,10 @@ const TodoList:React.FC<ITodoList> = ({todos, toggleTodo, deleteTodo}) => {
           align="center"
           variant="h4"
         >
-          InProgress Todo
+          InProgress Todos
         </Typography>
-        {
-          progressTodos.length ? (
-            progressTodos.map(todo=>(
+        {progressTodos.length ? (
+            progressTodos.map((todo)=>(
               <TodoListItem
                 key={todo.id}
                 todo={todo}
@@ -59,9 +59,11 @@ const TodoList:React.FC<ITodoList> = ({todos, toggleTodo, deleteTodo}) => {
                 deleteTodo={deleteTodo}
               />
             ))
-          ) : (<Typography color="error" mt={3}>
-            No InProgress Todo
-          </Typography>)
+          ) : (
+            <Typography color="error" mt={3}>
+              No InProgress Todo
+            </Typography>
+          )
         }
       </Grid>
       <Grid 
@@ -82,11 +84,11 @@ const TodoList:React.FC<ITodoList> = ({todos, toggleTodo, deleteTodo}) => {
           align="center"
           variant="h4"
         >
-          InProgress Todo
+          Completed Todos
         </Typography>
         {
           completedTodos.length ? (
-            completedTodos.map(todo=>(
+            completedTodos.map((todo)=>(
               <TodoListItem
                 key={todo.id}
                 todo={todo}
@@ -94,9 +96,11 @@ const TodoList:React.FC<ITodoList> = ({todos, toggleTodo, deleteTodo}) => {
                 deleteTodo={deleteTodo}
               />
             ))
-          ) : (<Typography color="error" mt={3}>
-            No Completed Todo
-          </Typography>)
+          ) : (
+            <Typography color="error" mt={3}>
+              No Completed Todo
+            </Typography>
+          )
         }
       </Grid>
     </Grid>

@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import { FC } from "react";
 
 interface ITodoListItem extends ITodoListFn {
-  todos: ITodoType;
+  todo: ITodoType;
 }
 
 const TodoListItem: FC<ITodoListItem> = ({ todo, toggleTodo, deleteTodo }) => {
