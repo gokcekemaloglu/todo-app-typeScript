@@ -1,5 +1,5 @@
 import { Container } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import AddTodoComp from '../components/AddTodoComp'
 import TodoList from '../components/TodoList'
@@ -8,11 +8,11 @@ import { notify, SweetAlertIcons } from '../helper/notify'
 
 const url = "https://634ac3fc5df952851418480f.mockapi.io/api/todos";
 
-interface ITodoType {
-  task: string,
-  isDone: Boolean,
-  id: number | string
-}
+// interface ITodoType {
+//   task: string,
+//   isDone: Boolean,
+//   id: number | string
+// }
 
 const Home = () => {
 
@@ -24,7 +24,8 @@ const Home = () => {
       console.log(data);
       setTodos(data)
     } catch (error) {
-      
+      console.log(error);
+      notify("Can not reach todos", SweetAlertIcons.ERROR)
     }
   }
   
@@ -53,7 +54,8 @@ const Home = () => {
     try {
       await axios.delete(`${url}/${id}`)
     } catch (error) {
-      console.log(error);      
+      console.log(error);
+      notify("Todo is not deleted", SweetAlertIcons.ERROR)
     } finally {
       getTodos()
     }
